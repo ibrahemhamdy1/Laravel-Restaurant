@@ -17,7 +17,7 @@ class CreateMenusTable extends Migration
             $table->string('title')->unique();
             $table->string('type');
             $table->text('descripion');
-            $table->boolen('status');
+            $table->boolean('status');
             $table->string('iamge');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

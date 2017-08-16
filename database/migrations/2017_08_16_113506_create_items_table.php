@@ -16,9 +16,9 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('title')->unique();
             $table->text('descripion');
-            $table->boolen('status');
+            $table->boolean('status');
             $table->string('iamge');
-            $table->decimal('price');
+            $table->integer('price');
             $table->integer('menu_id')->unsigned();
             $table->foreign('menu_id')->references('id')->on('menus');
             $table->timestamps();
