@@ -16,9 +16,9 @@ class CreateMealsTable extends Migration
             $table->increments('id');
             $table->string('title')->unique();
             $table->text('descripion');
-            $table->boolen('status');
+            $table->boolean('status');
             $table->string('iamge');
-            $table->decimal('price');
+            $table->integer('price');
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
