@@ -12,7 +12,7 @@ class CreateOrderMealItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_meal_item', function (Blueprint $table) {
+        Schema::create('order_meal', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('meal_id')->unsigned();
             $table->foreign('meal_id')->references('id')->on('meals');
@@ -29,6 +29,6 @@ class CreateOrderMealItemTable extends Migration
      */
     public function down()
     {
-        Schema::drop('order_meal_item');
+        Schema::drop('order_meal');
     }
 }

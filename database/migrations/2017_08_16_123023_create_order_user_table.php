@@ -12,7 +12,7 @@ class CreateOrderUserItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_user_item', function (Blueprint $table) {
+        Schema::create('order_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
@@ -30,6 +30,6 @@ class CreateOrderUserItemTable extends Migration
      */
     public function down()
     {
-        Schema::drop('order_user_item');
+        Schema::drop('order_user');
     }
 }
