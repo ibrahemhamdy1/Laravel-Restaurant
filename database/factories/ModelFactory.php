@@ -24,3 +24,18 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Menu::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'title'      => $faker->name,
+        'type'       => $faker->word,
+        'descripion' => $faker->text,
+        'status'     => $faker->boolean,
+        'image'      => $faker->imageUrl($width = 640, $height = 480),
+        'user_id'    => $faker->numberBetween($min = 1, $max =10),
+
+    ];
+});
