@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->string('title');
             $table->text('descripion');
             $table->boolean('status');
-            $table->string('iamge');
+            $table->string('image');
             $table->integer('rate');
             
             $table->integer('customer_id')->unsigned();

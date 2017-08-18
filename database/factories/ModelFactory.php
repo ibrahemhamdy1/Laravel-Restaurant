@@ -64,3 +64,45 @@ $factory->define(App\Meal::class,function(Faker\Generator $faker){
 
     ];
 });
+
+$factory->define(App\Customer::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+
+        'address' => $faker->address,
+        'city' => $faker->city,
+        'phone' => $faker->e164PhoneNumber,
+
+        'password' => $password ?: $password = bcrypt('secret'),
+
+    ];
+});
+
+
+$factory->define(App\Order::class,function(Faker\Generator $faker){
+    return [
+        'total'         =>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'status'        => $faker->boolean,
+        'cashIn'        =>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'payment'       =>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'change'        =>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'customer_id'   => $faker->numberBetween($min = 342, $max =441),
+
+    ];
+});
+
+$factory->define(App\Comment::class,function(Faker\Generator $faker){
+    return [
+        'title'       => $faker->sentence,
+        'descripion'  => $faker->text,
+        'status'      => $faker->boolean,
+        'image'       => $faker->imageUrl($width = 640, $height = 480),
+        'customer_id'     => $faker->numberBetween($min =342, $max =441),
+        'order_id'     => $faker->numberBetween($min = 4, $max =100),
+        'rate'     => $faker->numberBetween($min = 1, $max =5),
+
+    ];
+});
