@@ -89,7 +89,7 @@ $factory->define(App\Order::class,function(Faker\Generator $faker){
         'cashIn'        =>$faker->randomNumber($nbDigits = NULL, $strict = false),
         'payment'       =>$faker->randomNumber($nbDigits = NULL, $strict = false),
         'change'        =>$faker->randomNumber($nbDigits = NULL, $strict = false),
-        'customer_id'   => $faker->numberBetween($min = 342, $max =441),
+        //'customer_id'   => $faker->numberBetween($min = 1, $max =100),
 
     ];
 });
@@ -100,8 +100,8 @@ $factory->define(App\Comment::class,function(Faker\Generator $faker){
         'descripion'  => $faker->text,
         'status'      => $faker->boolean,
         'image'       => $faker->imageUrl($width = 640, $height = 480),
-        'customer_id'     => $faker->numberBetween($min =342, $max =441),
-        'order_id'     => $faker->numberBetween($min = 4, $max =100),
+        'customer_id'     => $faker->numberBetween($min =1, $max =100),
+        'order_id'     => $faker->numberBetween($min = 1, $max =100),
         'rate'     => $faker->numberBetween($min = 1, $max =5),
 
     ];
@@ -119,8 +119,18 @@ $factory->define(App\MealItem::class, function (Faker\Generator $faker) {
 $factory->define(App\OrderItem::class, function (Faker\Generator $faker) {
     return [
         
-        'order_id'     => $faker->numberBetween($min =4, $max =100),
+        'order_id'     => $faker->numberBetween($min =1, $max =100),
         'item_id'     => $faker->numberBetween($min = 1, $max =100),
+
+    ];
+});
+
+$factory->define(App\OrderUser::class, function (Faker\Generator $faker) {
+    return [
+        
+        'order_id'    => $faker->numberBetween($min =1, $max =100),
+        'user_id'     => $faker->numberBetween($min = 1, $max =100),
+        'type'        => $faker->word,
 
     ];
 });

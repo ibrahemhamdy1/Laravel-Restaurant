@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderUser extends Model
 {
-    public $table = "order_items";
+    public $table = "order_user";
 }
