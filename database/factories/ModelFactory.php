@@ -25,17 +25,42 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-
 $factory->define(App\Menu::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'title'      => $faker->name,
+        'title'       => $faker->sentence,
         'type'       => $faker->word,
-        'descripion' => $faker->text,
-        'status'     => $faker->boolean,
-        'image'      => $faker->imageUrl($width = 640, $height = 480),
-        'user_id'    => $faker->numberBetween($min = 1, $max =200),
+        'descripion'  => $faker->text,
+        'status'      => $faker->boolean,
+        'image'       => $faker->imageUrl($width = 640, $height = 480),
+        'user_id'     => $faker->numberBetween($min = 1, $max =50),
+
+    ];
+});
+
+
+$factory->define(App\Item::class,function(Faker\Generator $faker){
+    return [
+        'title'       => $faker->sentence,
+        'descripion'  => $faker->text,
+        'status'      => $faker->boolean,
+        'image'       => $faker->imageUrl($width = 640, $height = 480),
+        'price'       =>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'menu_id'     => $faker->numberBetween($min = 1, $max =10),
+        'user_id'     => $faker->numberBetween($min = 1, $max =50),
+
+    ];
+});
+
+$factory->define(App\Meal::class,function(Faker\Generator $faker){
+    return [
+        'title'       => $faker->sentence,
+        'price'       =>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'descripion'  => $faker->text,
+        'status'      => $faker->boolean,
+        'image'       => $faker->imageUrl($width = 640, $height = 480),
+        'user_id'     => $faker->numberBetween($min = 1, $max =10),
 
     ];
 });
