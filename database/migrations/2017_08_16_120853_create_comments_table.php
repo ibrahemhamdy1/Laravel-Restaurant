@@ -19,11 +19,12 @@ class CreateCommentsTable extends Migration
             $table->boolean('status');
             $table->string('iamge');
             $table->integer('rate');
+            
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
 
 
-            $table->integer('order_id')->unsiged()->nullable();
+            $table->integer('order_id')->unsigned()->nullable();
             $table->foreign('order_id')->references('id')->on('items');
 
             

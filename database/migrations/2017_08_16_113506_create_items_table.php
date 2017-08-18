@@ -17,10 +17,12 @@ class CreateItemsTable extends Migration
             $table->string('title')->unique();
             $table->text('descripion');
             $table->boolean('status');
-            $table->string('iamge');
+            $table->string('image');
             $table->integer('price');
             $table->integer('menu_id')->unsigned();
             $table->foreign('menu_id')->references('id')->on('menus');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

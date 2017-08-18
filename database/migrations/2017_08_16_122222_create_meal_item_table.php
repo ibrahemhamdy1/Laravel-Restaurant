@@ -17,7 +17,7 @@ class CreateMealItemTable extends Migration
             $table->integer('discount');
             $table->integer('meal_id')->unsigned();
             $table->foreign('meal_id')->references('id')->on('meals');
-            $table->integer('item_id')->unsiged();
+            $table->integer('item_id')->unsigned();
             $table->foreign('item_id')->references('id')->on('items');
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class CreateOrderMealItemTable extends Migration
             $table->increments('id');
             $table->integer('meal_id')->unsigned();
             $table->foreign('meal_id')->references('id')->on('meals');
-            $table->integer('order_id')->unsiged();
+            $table->integer('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
