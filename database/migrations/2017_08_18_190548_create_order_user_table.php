@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderUserItemTable extends Migration
+class CreateOrderUserTable extends Migration
 {
     /**
      * Run the migrations.
