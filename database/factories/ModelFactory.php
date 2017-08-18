@@ -106,3 +106,21 @@ $factory->define(App\Comment::class,function(Faker\Generator $faker){
 
     ];
 });
+
+$factory->define(App\MealItem::class, function (Faker\Generator $faker) {
+    return [
+        'discount'     => $faker->numberBetween($min = 1, $max =5),
+        'meal_id'     => $faker->numberBetween($min =1, $max =100),
+        'item_id'     => $faker->numberBetween($min = 1, $max =100),
+
+    ];
+});
+
+$factory->define(App\OrderItem::class, function (Faker\Generator $faker) {
+    return [
+        
+        'order_id'     => $faker->numberBetween($min =4, $max =100),
+        'item_id'     => $faker->numberBetween($min = 1, $max =100),
+
+    ];
+});

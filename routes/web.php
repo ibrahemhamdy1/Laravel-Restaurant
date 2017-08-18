@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-factory(App\Comment::class,100)->create();
+factory(App\OrderItem::class,100)->create();

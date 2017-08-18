@@ -10,3 +10,7 @@ this the  RMS  documantaions
 
 #   -There is  another  way by uesing seed database/Seeder/DatabaseSeeder.php  but  this in the       file  "factory(App\User::class,5)->create();" and  go to  tirmainl  and  run  this                  "php artisan db:seed"
     
+
+errors  
+#1- i get  an  error that  telles me  ' Base table or view not found: 1146 Table 'rms.meal_items' doesn't exist' 
+#   -this  Laravel can't determine the table name  i add this line '        public $table = "meal_item";'     in the  modle MealItem  
