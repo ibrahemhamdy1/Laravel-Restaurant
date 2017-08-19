@@ -16,7 +16,7 @@ class CreateMenusTable extends Migration
             $table->increments('id');
             $table->string('title')->unique();
             $table->string('type');
-            $table->text('descripion');
+            $table->text('description');
             $table->boolean('status');
             $table->string('image');
             $table->integer('user_id')->unsigned();

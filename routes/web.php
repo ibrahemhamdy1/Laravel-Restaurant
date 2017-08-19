@@ -18,5 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/Menus', 'MenusController');
 
-factory(App\OrderUser::class,200)->create();

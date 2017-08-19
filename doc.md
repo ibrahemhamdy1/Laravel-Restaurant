@@ -11,6 +11,11 @@ this the  RMS  documantaions
 #   -There is  another  way by uesing seed database/Seeder/DatabaseSeeder.php  but  this in the       file  "factory(App\User::class,5)->create();" and  go to  tirmainl  and  run  this                  "php artisan db:seed"
     
 
+//this  section when we  start  to make controller 
+# -to  make menus controller with  his  methoed   write  "php  artisan make:controller  MenusController --resource"
+
+#-compact() is not a Laravel function. It is a PHP function. It creates an array containing variables and their values.
+
 errors  
 #1- i get  an  error that  telles me  ' Base table or view not found: 1146 Table 'rms.meal_items' doesn't exist' 
 #   -this  Laravel can't determine the table name  i add this line '        public $table = "meal_item";'     in the  modle MealItem  
