@@ -15,7 +15,8 @@ this the  RMS  documantaions
 # -to  make menus controller with  his  methoed   write  "php  artisan make:controller  MenusController --resource"
 
 #-compact() is not a Laravel function. It is a PHP function. It creates an array containing variables and their values.
-
+//here  to  use  Form  in  laravel  
+#to  use  Form   follw this  https://laravelcollective.com/docs/5.2/html
 errors  
 #1- i get  an  error that  telles me  ' Base table or view not found: 1146 Table 'rms.meal_items' doesn't exist' 
 #   -this  Laravel can't determine the table name  i add this line '        public $table = "meal_item";'     in the  modle MealItem  

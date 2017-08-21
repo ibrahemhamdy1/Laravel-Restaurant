@@ -24,6 +24,7 @@
                         <tbody>
                         @foreach($menus as $menu)
                             <tr>
+                            <td>{{$menu->id}}</td>
                             <td>{{$menu->title}}</td>
                             <td>{{$menu->type}}</td>
                             <td>{{$menu->description}}</td>
@@ -36,7 +37,10 @@
                             {!! Form::close() !!}
                              
                             </td>
-                            <td>{{$menu->id}}</td>
+                            <td>
+                            <a href="Menus/{{$menu->id}}/edit"><span class="glyphicon glyphicon-edit"></span></a>
+                            
+                            </td>
                             </tr>
                         @endforeach
                         </tbody>

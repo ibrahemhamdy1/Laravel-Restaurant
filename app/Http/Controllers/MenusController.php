@@ -64,6 +64,7 @@ class MenusController extends Controller
     public function edit($id)
     {
         //
+        dd($id);
     }
 
     /**
@@ -86,6 +87,7 @@ class MenusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $munu=Menu::findOrFail($id)->delete();
+        return  redirect()->back();
     }
 }
