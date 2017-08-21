@@ -9,4 +9,8 @@ class Menu extends Model
     //
 
     protected $fillable=['title','type','descripion','status','image','user_id'];
+    public  function  user(){
+
+    return  $this->belongsTo('App\User');
+    }
 }

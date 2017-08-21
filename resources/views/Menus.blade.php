@@ -27,10 +27,15 @@
                             <td>{{$menu->title}}</td>
                             <td>{{$menu->type}}</td>
                             <td>{{$menu->description}}</td>
-                             <td>{{$menu->status}}</td>
-                            <td>{{$menu->image}}</td>
-                            <td>{{$menu->user_id}}</td>
-                            <td>{{$menu->id}}</td>
+                             <td>{{ $menu->status }}</td>
+                            <td><img class="img-responsive menuThumb"src="{{$menu->image}}"></td>
+                            <td>{{$menu->user->name}}</td>
+                            <td>
+                             {!! Form::open(['method'=>'DELETE','route'=>['Menus.destroy',$menu->id]]) !!}
+                            {!! Form::submit('X',['class'=>'btn btn-denger']) !!}
+                            {!! Form::close() !!}
+                             
+                            </td>
                             <td>{{$menu->id}}</td>
                             </tr>
                         @endforeach
