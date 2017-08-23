@@ -41,7 +41,15 @@ class MenusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        if(isset($input['image'])){
+                $input['image']=$this->upload($input['image']);
+        }else{
+                $input['image']='imges/default.jpg';
+        }
+    }
+    public function upload($file){
+
     }
 
     /**

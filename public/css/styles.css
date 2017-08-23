@@ -1,3 +1,10 @@
 .menuThumb{
     width:150px;
 }
+textarea{
+    height:120px !important;
+}
+
+.btn-primery{
+    width:100% !important;
+}
