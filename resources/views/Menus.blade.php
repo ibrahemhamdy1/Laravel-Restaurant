@@ -22,11 +22,12 @@
                         </div>
 
                         <div class="form-group col-lg-4">
-                        {!! Form::select('status',['Active'=>'Active','Inactive'=>'inactive'],null,array('required','class'=>'form-control','placeholder'=>'Menu Status'))!!}
+                        {!! Form::select('status',['1'=>'Active','0'=>'inactive'],null,array('required','class'=>'form-control','placeholder'=>'Menu Status'))!!}
                         </div>
                         <div class="form-group col-lg-12">
-                        {!!Form::textarea('descripation',null,array('required','class'=>'form-control','placeholder'=>'Menu Descripation'))!!}
+                        {!!Form::textarea('description',null,array('required','class'=>'form-control','placeholder'=>'Menu Descripation'))!!}
                         </div>
+
                         <div class="form-group col-lg-4">
                         {!! Form::file('image',array('required','class'=>'form-control','placeholder'=>'Menu Status'))!!}
                         </div>
@@ -64,7 +65,7 @@
                             <td>{{$menu->type}}</td>
                             <td>{{$menu->description}}</td>
                              <td>{{ $menu->status }}</td>
-                            <!-- <td><img class="img-responsive menuThumb"src="{{$menu->image}}"></td> -->
+                            <td><img class="img-responsive menuThumb"src="{{$menu->image}}"></td>
                             <td>{{$menu->user->name}}</td>
                             <td>
                              {!! Form::open(['method'=>'DELETE','route'=>['Menus.destroy',$menu->id]]) !!}

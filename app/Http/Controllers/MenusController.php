@@ -47,9 +47,18 @@ class MenusController extends Controller
         }else{
                 $input['image']='imges/default.jpg';
         }
+        $input['user_id']= \Auth::user()->id;
+        Menu::create($input);
+        return redirect ()->back();
     }
     public function upload($file){
-
+        $extension =$file->getClientOriginalExtension();
+        $sha1 =sha1($file->getClientOriginalName());
+        $filename=date('Y-m-d-i-s')."_".$sha1.".".$extension;
+        $path=public_path('/images/menus/');
+        $file->move($path,$filename);
+        return  'images/menus/'.$filename;
+        dd($filename);
     }
 
     /**
