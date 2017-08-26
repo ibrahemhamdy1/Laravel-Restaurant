@@ -33,6 +33,15 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    
+
+
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{{url('/Menus')}}">Menus  </a>
+                        </li>
+                        <li><a href="{{url('/Menus/create')}}">Add Menus</a></li> 
+                    </ul>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -72,8 +81,15 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            @yield('content')
+    </div>
+        </div>  
+            </div>        
+      
+        
     </div>
 
     <!-- Scripts -->

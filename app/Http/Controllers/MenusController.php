@@ -20,7 +20,7 @@ class MenusController extends Controller
     public function index()
     {
         $menus =Menu::all();
-        return  view('Menus',compact('menus'));
+        return  view('Menus/Menus',compact('menus'));
     }
 
     /**
@@ -30,7 +30,7 @@ class MenusController extends Controller
      */
     public function create()
     {
-        //
+        return  view("Menus/create");
     }
 
     /**
@@ -81,7 +81,8 @@ class MenusController extends Controller
     public function edit($id)
     {
         //
-        dd($id);
+        $menu=Menu::findOrFail($id);
+        return view('Menus.Edit',compact('menu'));
     }
 
     /**
@@ -93,7 +94,13 @@ class MenusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input=$request->all();
+        if(isset($input['image'])){
+                $input['image']=$this->upload($input['image']);
+        
+        }
+        Menu::findOrFail($id)->update($input);
+        return redirect ()->back();
     }
 
     /**
@@ -104,7 +111,7 @@ class MenusController extends Controller
      */
     public function destroy($id)
     {
-        $munu=Menu::findOrFail($id)->delete();
+       Menu::findOrFail($id)->delete();
         return  redirect()->back();
     }
 }

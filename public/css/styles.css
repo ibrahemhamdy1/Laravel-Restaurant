@@ -2,9 +2,12 @@
     width:150px;
 }
 textarea{
-    height:120px !important;
+    height:160px !important;
 }
 
 .btn-primery{
     width:100% !important;
+}
+.img-rounded{
+    border:1px solid gray;
 }
