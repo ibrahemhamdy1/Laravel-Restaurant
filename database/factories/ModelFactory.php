@@ -43,7 +43,7 @@ $factory->define(App\Menu::class, function (Faker\Generator $faker) {
 $factory->define(App\Item::class,function(Faker\Generator $faker){
     return [
         'title'       => $faker->sentence,
-        'descripion'  => $faker->text,
+        'description'  => $faker->text,
         'status'      => $faker->boolean,
         'image'       => $faker->imageUrl($width = 640, $height = 480),
         'price'       =>$faker->randomNumber($nbDigits = NULL, $strict = false),
