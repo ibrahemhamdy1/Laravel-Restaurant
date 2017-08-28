@@ -11,3 +11,9 @@ textarea{
 .img-rounded{
     border:1px solid gray;
 }
+.MenuItem{
+    max-height: 120px;overflow: auto;
+}
+.discount{
+    width:40px;
+}

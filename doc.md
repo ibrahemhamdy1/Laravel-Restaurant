@@ -20,3 +20,4 @@ this the  RMS  documantaions
 errors  
 #1- i get  an  error that  telles me  ' Base table or view not found: 1146 Table 'rms.meal_items' doesn't exist' 
 #   -this  Laravel can't determine the table name  i add this line '        public $table = "meal_item";'     in the  modle MealItem  
+#in  the  vidoe 48 m 3:22  he  use  methoed   'lsits' it  not  working  you  have  to  use  'pluck' insted  

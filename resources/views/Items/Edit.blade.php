@@ -6,7 +6,7 @@
 <div class="panel-heading">Edit Items :{{$item->title}}</div>
     <div class="panel-body">
         <div class="col-lg-8">
-                    {!! Form::model($item,array('method'=>'PATCH','action'=>['MenusController@update',$item->id],'files'=>true))!!}
+                    {!! Form::model($item,array('method'=>'PATCH','action'=>['ItemsController@update',$item->id],'files'=>true))!!}
                         <div class="form-group col-lg-4">
                             {!!Form::text('title',null,array('required','class'=>'form-control','placeholder'=>'Mueu Title'))!!}
 
@@ -24,7 +24,10 @@
                         <div class="form-group col-lg-12">
                             {!!Form::textarea('description',null,array('required','class'=>'form-control','placeholder'=>'item Descripation'))!!}
                         </div>
+                        <div class="form-group col-lg-4">
+                            {!!Form::number('price',null,array('required','class'=>'form-control','placeholder'=>'Mueu Price'))!!}
 
+                        </div>
                         <div class="form-group col-lg-4">
                             {!! Form::file('image',array('class'=>'form-control','placeholder'=>'item Status'))!!}
                         </div>

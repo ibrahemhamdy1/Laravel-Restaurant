@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Meal;
 use App\Menu;
-class MenusController extends Controller
+use App\MealItem;
+
+class MealsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +22,8 @@ class MenusController extends Controller
 
     public function index()
     {
-        $menus =Menu::paginate(4);
-        return  view('Menus/Menus',compact('menus'));
+        $meals =Meal::paginate(4);
+        return  view('Meals/Meals',compact('meals'));
     }
 
     /**
@@ -29,8 +32,9 @@ class MenusController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return  view("Menus/create");
+    {   $menus =Menu::all();
+            
+        return  view("meals/create",compact('menus'));
     }
 
     /**
@@ -48,16 +52,27 @@ class MenusController extends Controller
                 $input['image']='imges/default.jpg';
         }
         $input['user_id']= \Auth::user()->id;
-        $menu= Menu::create($input);
-        return view("Menus.Edit",compact("menu"));
+        $meal=Meal::create($input);
+        foreach($input['items'] as  $item)
+        {
+            MealItem::create(['meal_id'=>$meal->id,'item_id'=>$item,'discount'=>$input['discount'][$item]]);
+        }
+        $menus=Menu::all();
+        $mealItem =MealItem::where('meal_id',$meal->id)->get();
+        $mealItemIDs=array();
+        foreach($mealItem as $mealItem)
+        {
+            $mealItemIDs[]=$mealItem->item_id;
+        }
+        return view("meals.Edit",compact("meal","menus","mealItemIDs"));
     }
     public function upload($file){
         $extension =$file->getClientOriginalExtension();
         $sha1 =sha1($file->getClientOriginalName());
         $filename=date('Y-m-d-i-s')."_".$sha1.".".$extension;
-        $path=public_path('/images/menus/');
+        $path=public_path('/images/meals/');
         $file->move($path,$filename);
-        return  'images/menus/'.$filename;
+        return  'images/meals/'.$filename;
         dd($filename);
     }
 
@@ -81,8 +96,10 @@ class MenusController extends Controller
     public function edit($id)
     {
         //
-        $menu=Menu::findOrFail($id);
-        return view('Menus.Edit',compact('menu'));
+        $Meal=Meal::findOrFail($id);
+        $meals=Menu::pluck('title','id');
+    
+        return view("meals.Edit",compact("Meal","meals"));
     }
 
     /**
@@ -99,7 +116,7 @@ class MenusController extends Controller
                 $input['image']=$this->upload($input['image']);
         
         }
-        Menu::findOrFail($id)->update($input);
+        Meal::findOrFail($id)->update($input);
         return redirect ()->back();
     }
 
@@ -111,7 +128,7 @@ class MenusController extends Controller
      */
     public function destroy($id)
     {
-       Menu::findOrFail($id)->delete();
+       Meal::findOrFail($id)->delete();
         return  redirect()->back();
     }
 }

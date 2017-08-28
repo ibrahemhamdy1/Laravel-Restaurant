@@ -5,8 +5,8 @@
           
 <div class="col-md-12">
             <div class="panel panel-default">
-              <div class="panel-heading">Items 
-              <a href="Items/create">
+              <div class="panel-heading">Meals 
+              <a href="Meals/create">
                 <span class="glyphicon glyphicon-plus pull-right"></span>
               </a>
               </div>
@@ -16,37 +16,35 @@
                         <thead>
                             <tr>
                             <th>id</th>
+
                             <th>title</th>
-                            <th>price</th>
                             <th>Description</th>
+                            <th>Price</th>
                             <th>Status</th>
                             <th>image</th>
                             <th>Created By</th>
-                            <th>Menu</th>
                             <th>Delete</th>
                             <th>Edite</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($items as $item)
+                        @foreach($meals as $meal)
                             <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->title}}</td>
-                            <td>{{$item->price}}</td>
-                            <td>{{$item->description}}</td>
-                             <td>{{ $item->status }}</td>
-                            <td><img class="img-responsive menuThumb"src="{{$item->image}}"></td>
-                            <td>{{$item->user->name}}</td>
-                            <td>{{$item->menu->title}}</td>
-
+                            <td>{{$meal->id}}</td>
+                            <td>{{$meal->title}}</td>
+                            <td>{{$meal->description}}</td>
+                            <td>{{ $meal->price }}</td>
+                            <td>{{ $meal->status }}</td>
+                            <td><img class="img-responsive menuThumb"src="{{$meal->image}}"></td>
+                            <td>{{$meal->user->name}}</td>
                             <td>
-                             {!! Form::open(['method'=>'DELETE','route'=>['Items.destroy',$item->id]]) !!}
+                             {!! Form::open(['method'=>'DELETE','route'=>['Meals.destroy',$meal->id]]) !!}
                             {!! Form::submit('X',['class'=>'btn btn-denger']) !!}
                             {!! Form::close() !!}
                              
                             </td>
                             <td>
-                            <a href="Items/{{$item->id}}/edit"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="Meals/{{$meal->id}}/edit"><span class="glyphicon glyphicon-edit"></span></a>
                             
                             </td>
                             </tr>
@@ -54,7 +52,7 @@
                         </tbody>
                 </table>
                 
-                {!!$items->render()!!}
+                {!!$meals->render()!!}
                 
                 
     </div>

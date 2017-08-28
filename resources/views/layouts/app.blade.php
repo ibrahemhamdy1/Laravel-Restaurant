@@ -38,10 +38,12 @@
 
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{url('/home')}}">home  </a>
+                            <a href="{{url('/home')}}">Home  </a>
                         </li>
                         <li><a href="{{url('/Menus')}}"> Menus</a></li> 
-                        <li><a href="{{url('/Items')}}">Add Items</a></li> 
+                        <li><a href="{{url('/Items')}}">Items</a></li> 
+                        <li><a href="{{url('/Meals')}}">Meal</a></li> 
+
 
                     </ul>
                 </div>

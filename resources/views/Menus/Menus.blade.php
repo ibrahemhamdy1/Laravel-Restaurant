@@ -49,9 +49,9 @@
                         @endforeach
                         </tbody>
                 </table>
-                
-                    <p>{{$menu->title}}</p>
-                   
+                <div class="paginatios col-lg-12">
+                {!!$menus->render()!!}
+                </div>                   
                 
     </div>
 </div>

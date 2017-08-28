@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\Menu;
+
 class ItemsController extends Controller
 {
     /**
@@ -19,7 +21,7 @@ class ItemsController extends Controller
 
     public function index()
     {
-        $items =Item::all();
+        $items =Item::paginate(4);
         return  view('Items/Items',compact('items'));
     }
 
@@ -29,8 +31,8 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return  view("Items/create");
+    {   $menus =Menu::pluck('title','id');
+        return  view("Items/create",compact('menus'));
     }
 
     /**
@@ -48,8 +50,9 @@ class ItemsController extends Controller
                 $input['image']='imges/default.jpg';
         }
         $input['user_id']= \Auth::user()->id;
-        Item::create($input);
-        return redirect ()->back();
+        $item=Item::create($input);
+        $menus=Menu::pluck('title','id');
+        return view("Items.Edit",compact("item","menus"));
     }
     public function upload($file){
         $extension =$file->getClientOriginalExtension();
@@ -82,7 +85,9 @@ class ItemsController extends Controller
     {
         //
         $item=Item::findOrFail($id);
-        return view('Items.Edit',compact('item'));
+        $menus=Menu::pluck('title','id');
+    
+        return view("Items.Edit",compact("item","menus"));
     }
 
     /**

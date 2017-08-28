@@ -57,7 +57,7 @@ $factory->define(App\Meal::class,function(Faker\Generator $faker){
     return [
         'title'       => $faker->sentence,
         'price'       =>$faker->randomNumber($nbDigits = NULL, $strict = false),
-        'descripion'  => $faker->text,
+        'description'  => $faker->text,
         'status'      => $faker->boolean,
         'image'       => $faker->imageUrl($width = 640, $height = 480),
         'user_id'     => $faker->numberBetween($min = 1, $max =10),
